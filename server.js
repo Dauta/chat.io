@@ -3,13 +3,16 @@ var express = require('express');
 var http = require('http');
 var bodyParser = require('body-parser');
 var path = require('path');
+var ejs = require('ejs');
 var app = express();
 var server = http.createServer(app);
 var port = process.env.PORT || 3000;
 
-//static dirs
+app.set('views', __dirname+'/public/views');
+app.set('view engine', 'ejs');
+app.engine('html', ejs.renderFile);
+//middleware
 app.use(express.static('public'));
-
 app.use(bodyParser.urlencoded({extended: true}));
 //route calls
 app.use('/', require('./routes/index.js'));
