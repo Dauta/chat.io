@@ -1,10 +1,9 @@
-var express = require('express');
-var router = express.Router;
-var http = require('http');
-var app = express();
-var server = http.createServer(app);
+// var express = require('express');
+// var http = require('http');
+// var app = express();
+// var server = http.createServer(app);
 
-var login = function(){
+var login = function(server){
 //socket
 var io = require('socket.io')(server);
 

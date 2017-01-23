@@ -65,11 +65,10 @@ input[type=submit]{
   border-radius: 5px;
 }
 #message_container{
+  margin: 0;
   width: 80%;
-  height: 90%;
-  //border: 3px solid rgba(37, 228, 247, 0.7);
-//  background-color: rgba(37, 228, 247, 0.45);
-//  border-radius: 5px;
+  height: 95%;
+  border: 3px solid rgba(37, 228, 247, 0.7);
   left: 10%;
   display: block;
   overflow-y: auto;
@@ -105,6 +104,17 @@ input[type=submit]{
   /*border-radius: 5px;*/
   /*border: 2px solid rgba(37, 228, 247, 0.7);
   background-color: rgba(37, 228, 247, 0.45);*/
+}
+#user_card{
+  width: 98%;
+  padding: 1%;
+  margin: 0;
+  background-color: rgba(37, 200, 218, 1);
+}
+#user_card h1, h2{
+  margin: 1 0;
+  font-size: 1em;
+  color: black;
 }
 .my_message_body{
   width: 90%;

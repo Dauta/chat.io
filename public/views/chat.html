@@ -3,6 +3,7 @@
 <head>
   <title>Chat.io</title>
   <link rel="stylesheet" type="text/css" href="/stylesheets/index_style.css" />
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 </head>
 <body>
   <div class="fullScreen" id="fullScreen">
@@ -11,8 +12,9 @@
   <div id="message_container" class="container">
     <h3>chat.io</h3>
     <div id="user_list">
-      <div id="user card">
-        <h1><%= username %></h1>
+      <div id="user_card">
+        <h1 id="username"><%= username %></h1>
+        <h2><span id="age"><%= age %></span>, <span id="location"><%= location %></span></h2>
       </div>
     </div>
     <div id="messanger">
@@ -28,6 +30,7 @@
       </div>
     </div>
   </div>
+  <script src='/javascripts/login.js'></script>
   <script src='/javascripts/starfield.js'></script>
 </body>
 </html>
