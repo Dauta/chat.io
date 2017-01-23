@@ -3,11 +3,9 @@
 // var app = express();
 // var server = http.createServer(app);
 
-var login = function(server){
+var login = function(server, users){
 //socket
 var io = require('socket.io')(server);
-
-var active_users = [];
 var user_index = 0;
 
 //open the connection with the client
@@ -15,17 +13,19 @@ io.on('connection', function(socket){
   console.log('connection open to the client');
   socket.emit('ping_from_server', 'Hello from the server');
 
+  //initialize list of already active users to a new user
+  socket.emit('initialize', users);
+
   //catch new login
   socket.on('login', function(data){
   var user = data;
   console.log(user.username + " just logged in, from " + user.location);
-  socket.emit('myIndex', user_index);
-  active_users.push(user);
+  users.push(user);
   user_index++;
 
-  console.log(active_users);
-  //TODO emit broadcast the user object
-
+  console.log(users);
+  //send list of all active users excluding self
+  socket.broadcast.emit('new_login', user);
 });
 
   //dissconnect

@@ -105,16 +105,20 @@ input[type=submit]{
   /*border: 2px solid rgba(37, 228, 247, 0.7);
   background-color: rgba(37, 228, 247, 0.45);*/
 }
-#user_card{
-  width: 98%;
+.user_card{
+  width: 96%;
   padding: 1%;
-  margin: 0;
-  background-color: rgba(37, 200, 218, 1);
+  margin: 0 auto;
+  border: 2px solid rgba(37, 228, 247, 0.7);
 }
-#user_card h1, h2{
+#my_card{
+  background-color: rgba(37, 200, 218, 1);
+  color: black;
+}
+.user_card h1, h2{
   margin: 1 0;
   font-size: 1em;
-  color: black;
+  color: white;
 }
 .my_message_body{
   width: 90%;
