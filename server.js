@@ -18,7 +18,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 //route calls
 app.use('/', require('./routes/index.js'));
 
-var active_users = [];
-var login = require('./modules/register_login.js')(server, active_users);
+var login = require('./modules/register_login.js')(server);
 server.listen(port);
 console.log("server running on port " + port + "...");
