@@ -8,7 +8,6 @@ var login = function(socket, users){
       user.id = socket.id;
       console.log(user.username + " just logged in, from " + user.location);
       users.push(user);
-      console.log(users);
       //send list of all active users excluding self
       socket.broadcast.emit('new_login', user);
   });
