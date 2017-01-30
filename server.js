@@ -6,6 +6,7 @@ var path = require('path');
 var ejs = require('ejs');
 var app = express();
 var server = http.createServer(app);
+var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
 
 
@@ -18,6 +19,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 //route calls
 app.use('/', require('./routes/index.js'));
 
-var login = require('./modules/register_login.js')(server);
+//list of active users
+var users = [];
+//list of messages
+var messages = [];
+
+var socket_listener = require(path.resolve('./modules/socket_listener.js'))(io, users, messages);
 server.listen(port);
 console.log("server running on port " + port + "...");
