@@ -114,15 +114,27 @@ var createNewMessageCard = function(whose, msg){
   //get the converstaion box element
   var convo = document.getElementById("conversation");
   var message = document.createElement("div");
-  message.className = whose;
-  var name = document.createElement("p");
-  name.innerHTML = time+": "+msg.userName+"-";
+  message.className = whose+"_message_body";
+  var name = document.createElement("h2");
+  name.innerHTML = msg.userName;
+  name.className = whose+"_display_name";
+  var timeString = document.createElement("h2");
+  timeString.innerHTML = time;
   var text = document.createElement("h1");
   text.innerHTML = msg.text;
-  message.appendChild(name);
+  message.appendChild(timeString);
+  message.appendChild(document.createElement("hr"));
   message.appendChild(text);
+
+  var messageCard = document.createElement("div");
+  messageCard.className = whose+"_messageCard";
+  messageCard.appendChild(name);
+  messageCard.appendChild(message);
   //display the message
-  convo.appendChild(message);
+  var wrapper = document.createElement("div");
+  wrapper.className = "messageWrapper";
+  wrapper.appendChild(messageCard);
+  convo.appendChild(wrapper);
 };
 //handle incoming messages
 var receive_messages = function(){
@@ -130,13 +142,13 @@ var receive_messages = function(){
   socket.on('new_message',function(msg){
       //create a new message and render it
       console.log('your message');
-      createNewMessageCard("your_message_body", msg);
+      createNewMessageCard("your", msg);
   });
 
   socket.on('my_message', function(msg){
     //create and render my own message
     console.log('my message');
-    createNewMessageCard("my_message_body", msg);
+    createNewMessageCard("my", msg);
   });
 };
 //event listener for the button to send message
