@@ -1,6 +1,5 @@
 /*jshint esversion: 6 */
-console.log(window.location.origin);
-var socket = io(window.location.origin);
+var socket = io("localhost:3000/socket.io/socket.io.js");
 
 //handle logins
 //create list of already online users
@@ -86,7 +85,6 @@ function formatTime(UNIX_timestamp){
 var send_message = function(){
   var messageBox = document.getElementById("message");
   var msg = messageBox.value;
-  console.log(msg);
   //check for valid input
   if(msg !== "" && msg !== undefined && msg !== null){
     //get time of the message
@@ -141,13 +139,11 @@ var receive_messages = function(){
   //receive a message sent by somebody
   socket.on('new_message',function(msg){
       //create a new message and render it
-      console.log('your message');
       createNewMessageCard("your", msg);
   });
 
   socket.on('my_message', function(msg){
     //create and render my own message
-    console.log('my message');
     createNewMessageCard("my", msg);
   });
 };
