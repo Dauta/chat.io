@@ -10,26 +10,25 @@ html::webkit-scrollbar{
   background: transparent;
 }
 .fullScreen {
-  position: relative;
+  position: absolute;
+  width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
 }
 .container{
-  position: absolute;
-  width: 60%;
-  min-width: 900px;
-  top: 2%;
-  left: 20%;
+  position: relative;
+  min-width: 700px;
+  margin: 0 auto;
   text-align: center;
   font-size: 160%;
   font-family:"Lucida Sans Unicode", serif;
   color: white;
   display: block;
 }
-.container h1,h2,h3{
-  font-size: 200%;
-}
-#container{
-  display: block;
+h1, h2, h3{
+  size: 160%;
+  margin: 0;
 }
 #main_table{
   margin: 0 auto;
@@ -37,96 +36,134 @@ html::webkit-scrollbar{
 }
 #titleDiv{
   width: 100%;
-  margin: 10 auto;
-  background-color: rgba(37, 228, 247, 0.5);
+  margin: 0 auto;
+  background-color: rgba(37, 120, 140, 0.85);
 }
 form{
-  border: 3px solid rgba(37, 228, 247, 1);
-  width: 40%;
-  margin: 0 auto;
-  background-color: rgba(37, 228, 247, 0.5);
-  border-radius: 5px;
+  width: 60%;
+  min-width: 600px;
+  margin: 10% auto;
+  padding: 1%;
+  background-color: rgba(37, 120, 140, 0.85);
+  border-radius: 4px;
 }
 input[type=text]{
-  margin-top: 10px;
-  margin-bottom: 20px;
-  width: 300px;
-  height: 30px;
+  background-color: rgba(0,0,0,1);
+  margin: 10px auto;
+  width: 400px;
+  height: 40px;
   border: 1px solid black;
-  border-radius: 5px;
-  padding: 2px;
+  border-radius: 4px;
   font-size: 100%;
+  color: white;
+  text-align: center;
 }
 input[type=submit]{
-  width: 100px;
-  height: 30px;
-  background-color: rgb(37,228,247);
+  width: 160px;
+  height: 40px;
+  background-color: rgb(200, 131, 26);
   border: 2px solid black;
   border-radius: 5px;
 }
-#message_container{
-  width: 80%;
-  height: 90%;
-  //border: 3px solid rgba(37, 228, 247, 0.7);
-//  background-color: rgba(37, 228, 247, 0.45);
-//  border-radius: 5px;
-  left: 10%;
-  display: block;
-  overflow-y: auto;
-  overflow-x: hidden;
+#submit{
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 #user_list{
-  width: 20%;
-  height: 65%;
-  margin: 5%;
-  margin-top: 0;
-  border-radius: 5px;
-  border: 2px solid rgba(37, 228, 247, 0.7);
-  background-color: rgba(37, 228, 247, 0.45);
+  width: 16%;
+//  min-width: 300;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*height: 65%;*/
+  margin: 0;
+  background-color: rgba(37, 120, 140, 0.40);
   float: left;
   overflow-y:auto;
 }
-#messanger{
-  width: 60%;
-  margin: 5%;
-  margin-top: 0;
-  margin-left: 0;
-  height: 65%;
-  border-radius: 5px;
-  border: 2px solid rgba(37, 228, 247, 0.7);
+#messenger{
+  width: 84%;
+  margin: 0;
   float: left;
+  padding: 0;
 }
 #conversation{
-  height: 65%;
-  max-height: 65%;
+  height: 80%;
   overflow-y: auto;
   width: 90%;
-  margin: 5% auto;
-  /*border-radius: 5px;*/
-  /*border: 2px solid rgba(37, 228, 247, 0.7);
-  background-color: rgba(37, 228, 247, 0.45);*/
+  margin: 0 auto;
+  margin-top: 5%;
+}
+.user_card{
+  text-align: left;
+  width: 96%;
+  padding: 2%;
+  margin: 2 auto;
+  background-color: rgba(37, 120, 140, 1);
+  box-shadow: 0px 2px 2px rgb(21, 26, 29);
+  font-size: 50%;
+
+}
+#my_card{
+  background-color: rgb(200, 131, 26);
+  box-shadow: 0px 2px 2px rgba(255, 240, 186, 0.7);
+}
+.messageWrapper{
+  margin: 10px 0;
+  width: 90%;
+  float: left;
+}
+.my_messageCard{
+  float: right;
+  max-width: 50%;
+}
+.your_messageCard{
+  float: left;
+  max-width: 50%;
 }
 .my_message_body{
-  width: 90%;
-  background-color: rgba(178, 240, 251, 0.35);
+  background-color: rgba(200, 131, 26, 0.8);
   color: white;
   padding: 5px;
-  border-radius: 5px;
-  text-align: left;
+  border-radius: 4px;
+  text-align: right;
+  font-size: 50%;
 }
 .your_message_body{
-  width: 90%;
-  background-color: rgba(94, 222, 245, 0.4);
-  border-radius: 5px;
+  margin-left: 0;
+  background-color: rgba(37, 120, 140, 0.8);
+  border-radius: 4px;
   color: white;
   padding: 5px;
   text-align: left;
-  margin-right: 0;
+  font-size: 50%;
 }
-#greeting_msg{
-  text-align: center;
-  font-size: 200%;
-  display: block;
-  margin: 10px auto;
-  background-color: rgba(101, 101, 101, 0.82);
+.my_display_name{
+  text-align: right;
+  margin-right: 10px;
+  font-size: 100%;
+}
+.your_display_name{
+  text-align: left;
+  margin-left: 10px;
+  font-size: 100%;
+}
+#msg{
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  margin: 0;
+}
+#message{
+  border: solid white 1px;
+  width: 90%;
+  float: left;
+  text-align: left;
+  margin: 0px auto;
+}
+#btnMsg{
+  width: 10%;
+  margin: 0px auto;
+  color: white;
+  font-size: 100%;
 }
