@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-var socket = io("localhost:3000/socket.io/socket.io.js");
+var socket = io();
 
 //handle logins
 //create list of already online users
